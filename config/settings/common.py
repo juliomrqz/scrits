@@ -40,6 +40,9 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'pytz',
+    'secretballot',
+    'taggit',
 )
 
 # Apps specific for this project go here.
@@ -64,6 +67,8 @@ MIDDLEWARE = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'scrits.base.middleware.CustomSecretBallotMiddleware',
 )
 
 # MIGRATIONS CONFIGURATION
