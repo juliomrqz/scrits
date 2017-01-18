@@ -40,11 +40,7 @@ pytz==2016.10
 django-redis==4.7.0
 redis>=2.10.5
 
-
-
-
-rcssmin==1.0.6 
+rcssmin==1.0.6
 django-compressor==2.1
 
-
-# Your custom requirements go here
+unicode-slugify==0.1.3
