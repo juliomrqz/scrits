@@ -10,8 +10,9 @@ Local settings
 - Add django-extensions as app
 """
 
-import socket
 import os
+import socket
+
 from .common import *  # noqa
 
 # DEBUG
