@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
+    url(r'^api/v1/', include('scrits.api.urls', namespace='users')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
