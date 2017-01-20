@@ -11,6 +11,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     """
     queryset = Article.objects.all().order_by('-created')
     queryset = queryset.prefetch_related("author").prefetch_related("category")
+    queryset = queryset.prefetch_related('tags')
 
     def get_serializer_class(self):
         if self.action == 'list':
