@@ -28,7 +28,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
-    tags = TagListSerializerField()
+    tags = TagListSerializerField(required=False)
     category = CategorySerializer()
     author = AuthorSerializer(read_only=True)
 
