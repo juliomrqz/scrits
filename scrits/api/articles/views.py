@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from rest_framework import viewsets
+from rest_framework import filters, viewsets
 
 from ...articles.models import Article
 from .serializers import ArticleCreateSerializer, ArticleDetailSerializer
@@ -12,6 +12,9 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all().order_by('-created')
     queryset = queryset.prefetch_related("author").prefetch_related("category")
     queryset = queryset.prefetch_related('tags')
+
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('title', 'content', 'description', 'category__title')
 
     def get_serializer_class(self):
         if self.action == 'list':
