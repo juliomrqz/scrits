@@ -11,13 +11,16 @@ class ArticleViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Articles to be viewed or edited.
     """
-    queryset = Article.objects.all().order_by('-created')
+    queryset = Article.objects.all()
     queryset = queryset.annotate(total_votes=Count('votes__vote'))
-    queryset = queryset.prefetch_related("author").prefetch_related("category")
+    queryset = queryset.prefetch_related("author")
+    queryset = queryset.prefetch_related("category")
     queryset = queryset.prefetch_related('tags')
 
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter,)
     search_fields = ('title', 'content', 'description', 'category__title')
+    ordering_fields = ('created', 'modified', 'total_votes')
+    ordering = ('-created')
 
     def get_serializer_class(self):
         if self.action == 'list':
