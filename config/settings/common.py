@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = (
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'pytz',
+    'rest_auth',  # rest apis
     'rest_framework',  # rest apis
     'secretballot',
     'taggit',
@@ -283,4 +284,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     )
+}
+
+# Django rest auth
+OLD_PASSWORD_FIELD_ENABLED = True
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'scrits.api.users.serializers.CustomUserDetailsSerializer',
 }

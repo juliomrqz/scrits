@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import include, url
 
+from rest_auth.views import PasswordChangeView, UserDetailsView
 from rest_framework import routers
 
 from .articles.views import ArticleViewSet
@@ -14,5 +15,11 @@ router.register(r'categories', CategoryViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
+
+    # all auth rest
+    url(r'^user/$', UserDetailsView.as_view(), name='rest_user_details'),
+    url(r'^password/change/$', PasswordChangeView.as_view(), name='rest_password_change'),
+
+    # rest_framework auth
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
