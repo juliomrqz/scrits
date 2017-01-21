@@ -32,6 +32,10 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
     category = CategorySerializer()
     author = AuthorSerializer(read_only=True)
 
+    total_upvotes = serializers.IntegerField(read_only=True)
+    total_downvotes = serializers.IntegerField(read_only=True)
+    total_votes = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Article
         fields = (
@@ -45,9 +49,15 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
             'description',
             'category',
             'status',
-            'tags'
+            'tags',
+            'total_upvotes',
+            'total_downvotes',
+            'total_votes',
         )
-        read_only_fields = ('created', 'modified')
+        read_only_fields = (
+            'created',
+            'modified',
+        )
 
 
 class ArticleCreateSerializer(ArticleDetailSerializer):

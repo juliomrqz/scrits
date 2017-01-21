@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.db.models import Count
+
 from rest_framework import filters, viewsets
 
 from ...articles.models import Article
@@ -10,6 +12,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     API endpoint that allows Articles to be viewed or edited.
     """
     queryset = Article.objects.all().order_by('-created')
+    queryset = queryset.annotate(total_votes=Count('votes__vote'))
     queryset = queryset.prefetch_related("author").prefetch_related("category")
     queryset = queryset.prefetch_related('tags')
 
