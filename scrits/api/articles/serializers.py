@@ -8,6 +8,7 @@ from taggit_serializer.serializers import (
 )
 
 from ...articles.models import Article
+from ...base.tools import markdown_to_html
 from ...categories.models import Category
 from ..base.serializers import AuthorSerializer
 
@@ -36,6 +37,8 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
     total_downvotes = serializers.IntegerField(read_only=True)
     total_votes = serializers.IntegerField(read_only=True)
 
+    content_html = serializers.SerializerMethodField()
+
     class Meta:
         model = Article
         fields = (
@@ -46,6 +49,7 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
             'title',
             'slug',
             'content',
+            'content_html',
             'description',
             'category',
             'status',
@@ -58,6 +62,9 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
             'created',
             'modified',
         )
+
+    def get_content_html(self, obj):
+        return markdown_to_html(obj.content)
 
 
 class ArticleCreateSerializer(ArticleDetailSerializer):

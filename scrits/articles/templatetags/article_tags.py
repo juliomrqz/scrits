@@ -2,12 +2,11 @@
 from django.template import Library
 from django.utils.safestring import mark_safe
 
+from ...base.tools import markdown_to_html
+
 register = Library()
 
 
 @register.filter
 def apply_markdown(text):
-    from bleach import clean
-    from markdown import markdown
-
-    return mark_safe(clean(markdown(text)))
+    return markdown_to_html(text)
