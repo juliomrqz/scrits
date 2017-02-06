@@ -12,5 +12,6 @@
     },
     "files.encoding": "utf8",
     "files.eol": "\n",
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "vsicons.presets.angular": false
 }

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load staticfiles i18n compress%}
+
+{% block head %}
+  <base href="{% url 'dashboard:home' %}">
+{% endblock %}
+
+{% block css %}
+
+  <!-- Your stuff: Third-party CSS libraries go here -->
+  {% compress css %}
+  <!-- This file stores project-specific CSS -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'css/simplemde.min.css' %}" rel="stylesheet">
+  {% endcompress %}
+{% endblock %}
+
+{% block body %}
+  <scrits-app>
+    <div class="horizontal-spinner">
+      <div class="title">Scrits</div>
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </scrits-app>
+{% endblock body %}
+
+{% block javascript %}
+  <script>
+  var API_URL = '{% url "api:api-root" %}';
+  // Fixes undefined module function in SystemJS bundle
+  function module() {};
+  </script>
+
+  <!-- place project specific Javascript in this file -->
+  {% compress js %}
+  <script src="{% static 'js/dashboard_shims.js' %}"></script>
+  <script src="{% static 'js/dashboard_main.js' %}"></script>
+  {% endcompress %}
+{% endblock javascript %}

@@ -11,6 +11,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^dashboard/', include('scrits.dashboard.urls', namespace='dashboard')),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
@@ -20,7 +21,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^api/v1/', include('scrits.api.urls', namespace='users')),
+    url(r'^api/v1/', include('scrits.api.urls', namespace='api')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

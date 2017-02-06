@@ -54,6 +54,7 @@ LOCAL_APPS = (
     'scrits.articles.apps.ArticlesConfig',
     'scrits.base.apps.BaseConfig',
     'scrits.categories.apps.CategoriesConfig',
+    'scrits.dashboard.apps.DashboardConfig',
     'scrits.users.apps.UsersConfig',
 )
 
