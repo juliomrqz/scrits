@@ -1,18 +1,27 @@
 Scrits
 ======
 
-.. image:: https://api.codacy.com/project/badge/Grade/41f92246d1de4af48a4ab96dcf04e733
-   :alt: Codacy Badge
-   :target: https://www.codacy.com/app/juliomrqz/scrits-django?utm_source=github.com&utm_medium=referral&utm_content=bazzite/scrits-django&utm_campaign=badger
-
-A simple markdown powered Knowledgebase for Django
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
 
+.. image:: https://api.codacy.com/project/badge/Grade/41f92246d1de4af48a4ab96dcf04e733
+   :alt: Codacy Badge
+   :target: https://www.codacy.com/app/juliomrqz/scrits-django?utm_source=github.com&utm_medium=referral&utm_content=bazzite/scrits-django&utm_campaign=badger
+
+.. image:: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
+   :alt: StackShare
+   :target: https://stackshare.io/bazzite/scrits
+
 
 :License: MIT
+
+
+A simple markdown powered Knowledgebase for Django
+
+
+
 
 
 Settings
