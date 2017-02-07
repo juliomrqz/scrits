@@ -9,7 +9,9 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
+    url(r'^',  include('scrits.home.urls', namespace='home')),
+    url(r'^articles/',  include('scrits.articles.urls', namespace='articles')),
+    url(r'^categories/',  include('scrits.categories.urls', namespace='categories')),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
     url(r'^dashboard/', include('scrits.dashboard.urls', namespace='dashboard')),
 

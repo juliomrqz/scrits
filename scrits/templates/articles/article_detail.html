@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% load i18n article_tags %}
+
+{% block container %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 col-md-offset-1">
+        <article>
+          <header>
+            <h1>{{ article.title }}</h1>
+            {% if article.description  %}<p>{{ article.description }}</p>{% endif %}
+          </header>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              {{ article.content | apply_markdown | safe }}
+            </div>
+            <div class="panel-footer">
+              <ul class="list-unstyled">
+                <li>
+                  <strong>Updated on</strong> <time pubdate="pubdate">{{ article.modified }}</time>
+                </li>
+                <li>
+                  <strong>{% trans "Category" %}:</strong> <a href="{{ article.category.get_absolute_url }}">{{ article.category.title }}</a>
+                </li>
+                <li>
+                  <ul class="list-inline">
+                    {% for tag in article.tags.names %}
+                      <li><span class="label label-default">{{ tag }}</span></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="well" id="voting-box">
+            {% trans "Was this article helpful?" %}
+            <a id="upvote-link" href="{% url 'articles:article_upvote' article.slug %}"
+              data-toggle="tooltip"
+              title="{% trans 'Yes' %}">
+              <span class="fa fa-thumbs-up"></span>
+            </a>
+            |
+            <a id="downvote-link" href="{% url 'articles:article_downvote' article.slug %}"
+              data-toggle="tooltip"
+              title="{% trans 'No' %}">
+            <span class="fa fa-thumbs-down"></span>
+            </a>
+
+            <br>
+
+            {% if article.vote_total %}
+              <small>{% blocktrans with upvotes=article.total_upvotes totalvotes=article.total_upvotes|add:article.total_downvotes %}{{ upvotes }} out of {{ totalvotes }} found this helpful{% endblocktrans %}</small>
+            {% endif %}
+          </div>
+        </article>
+
+      </div>
+
+      <div class="col-md-3">
+        <div class="well">
+          <strong>Related Articles</strong>
+          <ul class="list-unstyled">
+            {% for i in "x"|rjust:"5" %}
+            <li><a href="#">{% lorem 5 w random %}?</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock container %}

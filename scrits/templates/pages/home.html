@@ -1,1 +1,58 @@
 {% extends "base.html" %}
+
+{% block navcss %} home{% endblock %}
+
+{% block container %}
+  <div class="page-header home-header">
+    <div class="container-fluid text-center">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>How can we help you?</h1>
+
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control" type="text" name="search" placeholder="Have a Question?  Ask or enter a search term here." required/>
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit">
+                      <span class="fa fa-search" aria-hidden="true"></span>
+                      <span>Search</span>
+                    </button>
+                </span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 col-md-offset-1">
+        <ul class="home-category-list">
+          {% for category in categories_list %}
+            <li>
+              <a href="{% url 'categories:detail' category.slug %}">
+                <h2 class="title">{{ category.title }}</h2>
+                <div class="description">{{ category.description }}</div>
+              </a>
+            </li>
+          {% empty %}
+
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <div class="well">
+          <strong>Popular Articles</strong>
+          <ul class="list-unstyled">
+            {% for i in "x"|rjust:"5" %}
+            <li><a href="#">{% lorem 5 w random %}?</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock container %}

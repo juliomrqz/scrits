@@ -55,3 +55,5 @@ djangorestframework==3.5.3
 django-taggit-serializer==0.1.5
 
 django-rest-auth==0.9.0
+
+django-hitcount==1.2.2

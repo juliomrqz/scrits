@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load i18n article_tags %}
+
+{% block container %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 col-md-offset-1">
+        <article>
+          <header>
+            <h1>{{ category.title }}</h1>
+            {{ category.description }}
+          </header>
+
+          <hr>
+
+          <section>
+            {% for article in articles_list %}
+              <div>
+                <a href="{% url 'articles:article_detail' article.slug %}">{{ article.title }}</a>
+
+                <p>
+                  {% if article.description %}
+                    {{ article.description | truncatechars:200 }}
+                  {% else %}
+                    {{ article.content | apply_markdown | safe | striptags | truncatechars:200 }}
+                  {% endif %}
+                </p>
+              </div>
+            {% endfor %}
+          </section>
+        </article>
+      </div>
+
+      <div class="col-md-3">
+        <div class="well">
+          <strong>Popular Articles</strong>
+          <ul class="list-unstyled">
+            {% for i in "x"|rjust:"5" %}
+            <li><a href="#">{% lorem 5 w random %}?</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock container %}

@@ -40,6 +40,7 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'hitcount',
     'pytz',
     'rest_auth',  # rest apis
     'rest_framework',  # rest apis
@@ -55,6 +56,7 @@ LOCAL_APPS = (
     'scrits.base.apps.BaseConfig',
     'scrits.categories.apps.CategoriesConfig',
     'scrits.dashboard.apps.DashboardConfig',
+    'scrits.home.apps.HomeConfig',
     'scrits.users.apps.UsersConfig',
 )
 
