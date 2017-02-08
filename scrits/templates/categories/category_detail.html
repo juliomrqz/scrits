@@ -34,12 +34,8 @@
 
       <div class="col-md-3">
         <div class="well">
-          <strong>Popular Articles</strong>
-          <ul class="list-unstyled">
-            {% for i in "x"|rjust:"5" %}
-            <li><a href="#">{% lorem 5 w random %}?</a></li>
-            {% endfor %}
-          </ul>
+          <strong>Latest Articles</strong>
+          {% recent_articles %}
         </div>
       </div>
 
