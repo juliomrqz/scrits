@@ -44,7 +44,7 @@ THIRD_PARTY_APPS = (
     'pytz',
     'rest_auth',  # rest apis
     'rest_framework',  # rest apis
-    'secretballot',
+    # 'secretballot',
     'taggit',
     'taggit_serializer',
 )
@@ -58,6 +58,7 @@ LOCAL_APPS = (
     'scrits.dashboard.apps.DashboardConfig',
     'scrits.home.apps.HomeConfig',
     'scrits.users.apps.UsersConfig',
+    'scrits.votes.apps.VotesConfig',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

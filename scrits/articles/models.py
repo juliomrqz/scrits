@@ -8,7 +8,6 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
-from secretballot import enable_voting_on
 from taggit.managers import TaggableManager
 
 from ..base.choices import STATUS
@@ -56,5 +55,3 @@ class Article(TimeStampedModel):
 
     def __str__(self):
         return self.title
-
-enable_voting_on(Article)
