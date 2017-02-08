@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 from django.views.generic import View
 
 from braces.views import AjaxResponseMixin, JSONResponseMixin, MessageMixin
@@ -48,7 +48,7 @@ class ArticleVoteView(MessageMixin, JSONResponseMixin, AjaxResponseMixin, View):
             status = 500
 
         json_dict = {
-            'message': message.encode('utf-8')
+            'message': message
         }
 
         return self.render_json_response(json_dict, status)
@@ -76,7 +76,7 @@ class ArticleVoteView(MessageMixin, JSONResponseMixin, AjaxResponseMixin, View):
             vote = 1 if self.kwargs['vote'] == 'upvote' else -1
 
             # Add article vote
-            article = self.get_object() if article is None else article
+            article = Article.objects.get(slug=self.kwargs['slug'])
             article.add_vote(token, vote)
 
             return True

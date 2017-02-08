@@ -21,7 +21,7 @@
                   <strong>Updated on</strong> <time pubdate="pubdate">{{ article.modified }}</time>
                 </li>
                 <li>
-                  <strong>{% trans "Category" %}:</strong> <a href="{{ article.category.get_absolute_url }}">{{ article.category.title }}</a>
+                  <strong>{% trans "Category" %}:</strong> <a href="{% url 'categories:detail' article.category.slug %}">{{ article.category.title }}</a>
                 </li>
                 <li>
                   <ul class="list-inline">
