@@ -20,6 +20,14 @@ from .common import *  # noqa
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
+# SITE CONFIGURATION
+# ------------------------------------------------------------------------------
+# Hosts/domain names that are valid for this site
+# See https://docs.djangoproject.com/en/1.6/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = ['scrits.dev', 'localhost', '0.0.0.0', '127.0.0.1']
+# END SITE CONFIGURATION
+
+
 # SECRET CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
