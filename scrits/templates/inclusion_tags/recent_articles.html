@@ -1,4 +1,4 @@
-<ul class="list-unstyled">
+<ul class="side-list">
   {% for article in articles %}
     <li><a href="{% url 'articles:article_detail' article.slug %}">{{ article.title }}</a></li>
   {% endfor %}
