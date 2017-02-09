@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-7 col-md-offset-1">
-        <article>
+        <div>
           <header>
             <h1>{{ category.title }}</h1>
             {{ category.description }}
@@ -14,22 +14,22 @@
 
           <hr>
 
-          <section>
+          <section class="articles-list">
             {% for article in articles_list %}
-              <div>
-                <a href="{% url 'articles:article_detail' article.slug %}">{{ article.title }}</a>
+              <article>
+                <a href="{% url 'articles:article_detail' article.slug %}" class="title">{{ article.title }}</a>
 
-                <p>
+                <p class="description">
                   {% if article.description %}
                     {{ article.description | truncatechars:200 }}
                   {% else %}
                     {{ article.content | apply_markdown | safe | striptags | truncatechars:200 }}
                   {% endif %}
                 </p>
-              </div>
+              </article>
             {% endfor %}
           </section>
-        </article>
+        </div>
       </div>
 
       <div class="col-md-3">
