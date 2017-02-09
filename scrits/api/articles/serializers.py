@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 
+# import the logging library
+import logging
+
+from hitcount.models import HitCount
+from hitcount.views import HitCountMixin
 from rest_framework import serializers
 from taggit_serializer.serializers import (
     TaggitSerializer,
@@ -11,6 +16,9 @@ from ...articles.models import Article
 from ...base.tools import markdown_to_html
 from ...categories.models import Category
 from ..base.serializers import AuthorSerializer
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -38,6 +46,7 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
     total_votes = serializers.IntegerField(read_only=True)
 
     content_html = serializers.SerializerMethodField()
+    visits = serializers.SerializerMethodField()
 
     class Meta:
         model = Article
@@ -57,6 +66,7 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
             'total_upvotes',
             'total_downvotes',
             'total_votes',
+            'visits',
         )
         read_only_fields = (
             'created',
@@ -65,6 +75,18 @@ class ArticleDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     def get_content_html(self, obj):
         return markdown_to_html(obj.content)
+
+    def get_visits(self, obj):
+        try:
+            # Get the related HitCount object for the article object
+            hit_count = HitCount.objects.get_for_object(obj)
+
+            # Return the total hits
+            return hit_count.hits
+        except Exception as e:
+            logger.error(e)
+
+            return 0
 
 
 class ArticleCreateSerializer(ArticleDetailSerializer):

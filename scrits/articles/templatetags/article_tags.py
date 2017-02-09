@@ -2,9 +2,8 @@
 from django.template import Library
 from django.utils.safestring import mark_safe
 
-from ..models import Article
-
 from ...base.tools import markdown_to_html
+from ..models import Article
 
 register = Library()
 
