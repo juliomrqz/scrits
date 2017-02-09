@@ -2,6 +2,8 @@
 
 {% load staticfiles i18n compress%}
 
+{% block body_class %}{% endblock %}
+
 {% block head %}
   <base href="{% url 'dashboard:home' %}">
 {% endblock %}

@@ -28,7 +28,7 @@
 
   </head>
 
-  <body class="public">
+  <body class="{% block body_class %}public{% endblock %}">
     {% block body %}
       <div class="wrapper">
         {% if messages %}
