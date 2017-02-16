@@ -18,10 +18,13 @@ Scrits
 :License: MIT
 
 
-A simple markdown powered Knowledgebase for Django
+A markdown powered Knowledgebase for Django
 
 
+Documentation
+-------------
 
+The full documentation is at https://scrits-django.bazzite.com.
 
 
 Settings
@@ -99,8 +102,8 @@ See detailed `cookiecutter-django Heroku documentation`_.
 Docker
 ^^^^^^
 
-See detailed `cookiecutter-django Docker documentation`_.
+See detailed `scrits-django Docker documentation`_.
 
-.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+.. _`scrits-django Docker documentation`: https://scrits-django.bazzite.com/en/latest/docker_ec2.html
 
 
