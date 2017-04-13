@@ -24,7 +24,7 @@ A markdown powered Knowledgebase for Django
 Documentation
 -------------
 
-The full documentation is at https://scrits-django.bazzite.com.
+The full documentation is at https://docs.bazzite.com/scrits-django/.
 
 
 Settings
