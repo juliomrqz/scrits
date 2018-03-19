@@ -1,0 +1,40 @@
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+
+.public {
+    .wrapper {
+        height: 100%;
+        padding: 0 !important;
+    }
+    main {
+        height: 100vh;
+    }
+    .breadcrumb-header {
+        background-color: $gray-lighter;
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        .breadcrumb {
+            background-color: transparent;
+            margin: 0;
+            padding: 10px 0px;
+        }
+        .form-group {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.side-list {
+    @include list-unstyled;
+    margin: 10px 0;
+    a {
+        color: $gray-dark;
+    }
+    li {
+        margin: 5px 0;
+    }
+}

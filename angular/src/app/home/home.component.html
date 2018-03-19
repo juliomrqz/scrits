@@ -1,0 +1,96 @@
+<scrits-toolbar class="toolbar" [text]="toolbar"></scrits-toolbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Most voted articles</div>
+
+                <scrits-bounce-spinner *ngIf="showMostVotedSpinner"></scrits-bounce-spinner>
+
+                <table *ngIf="!showMostVotedSpinner" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let article of articlesByVotes | slice:0:5; let i = index;">
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.category.title }}</td>
+                            <td>{{ article.total_votes }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Lastest articles</div>
+
+                <scrits-bounce-spinner *ngIf="showLatestSpinner"></scrits-bounce-spinner>
+
+                <table *ngIf="!showLatestSpinner" class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Created on</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let article of articlesByCreated | slice:0:5; let i = index;">
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.category.title }}</td>
+                            <td>
+                                <time [tooltip]="article.created | amDateFormat:'MMM D, YYYY'">
+                                  {{ article.created | amTimeAgo }}
+                                </time>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Activity</div>
+                <div class="panel-body">
+                    <div class="activity-feed">
+                        <div class="feed-item">
+                            <div class="date">Sep 25</div>
+                            <div class="text">Jhon created the article <a href="#article1">Article 1</a></div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="date">Sep 24</div>
+                            <div class="text">Doe removed an article</div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="date">Sep 23</div>
+                            <div class="text">Jhon created a category <a href="#">Category 1</a></div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="date">Sep 21</div>
+                            <div class="text">Jhon updated the article <a href="#">Article 3</a></div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="date">Sep 18</div>
+                            <div class="text">Doe updated the article <a href="#">Article 2</a></div>
+                        </div>
+                        <div class="feed-item">
+                            <div class="date">Sep 17</div>
+                            <div class="text">Jhon login</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+</div>

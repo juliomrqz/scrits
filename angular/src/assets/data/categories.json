@@ -1,0 +1,25 @@
+[{
+        "id": 1,
+        "title": "Account",
+        "slug": "account",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, aspernatur ratione a, consectetur adipisicing elit",
+        "created": "2016-12-17T03:24:00.000Z",
+        "updated": "2016-12-01T02:24:00.000Z"
+    },
+    {
+        "id": 2,
+        "title": "Copyright",
+        "slug": "copyright",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, aspernatur ratione a.",
+        "created": "2016-12-17T03:24:00.000Z",
+        "updated": "2016-12-28T05:24:00.000Z"
+    },
+    {
+        "id": 3,
+        "title": "Get started",
+        "slug": "get-started",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "created": "2016-12-17T03:24:00.000Z",
+        "updated": "2017-07-01T06:24:00.000Z"
+    }
+]

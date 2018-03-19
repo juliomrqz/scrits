@@ -1,0 +1,39 @@
+.activity-feed {
+    padding: 15px;
+    .feed-item {
+        position: relative;
+        padding-bottom: $padding-base-vertical * 2;
+        padding-left: $padding-base-horizontal * 2;
+        border-left: 2px solid $gray-lighter;
+
+        &:last-child {
+            border-color: transparent;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 6px;
+            background: #fff;
+            border: 1px solid $brand-success;
+        }
+
+        .date {
+            position: relative;
+            top: -5px;
+            color: $gray-light;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .text {
+            position: relative;
+            top: -3px;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+$web-font-path: "https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic" !default;
+@import url($web-font-path);
+
+/* Global varibles */
+@import "scrits/variables";
+
+/* Bootstrap */
+@import "bootstrap/bootstrap";
+
+
+/* General */
+/* Bootstrap */
+@import "scrits/general";
+
+/* Font awesome */
+@import "font-awesome/font-awesome";
+
+/* Wrapper */
+@import "scrits/wrapper";
+
+/* Sidebar */
+@import "scrits/sidebar";
+
+/* Content */
+@import "scrits/content";
+
+/* Toolbar */
+@import "scrits/toolbar";
+
+/* Activity */
+@import "scrits/activity";
+
+/* Forms */
+@import "scrits/forms";
+
+/* Forms */
+@import "scrits/spinners";
+
+/* Slim loading bar */
+@import "vendors/slim-loading-bar";
+
+/* Public */
+/* General */
+@import "scrits/public/general";
+
+/* Home page */
+@import "scrits/public/home";
+
+/* Navbar */
+@import "scrits/public/navbar";
+
+/* Categories */
+@import "scrits/public/categories";
+
+/* Footer */
+@import "scrits/public/footer";

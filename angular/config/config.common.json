@@ -1,0 +1,5 @@
+{
+  "title": "Scrits",
+  "description": "A a simple markdown powered Knowledgebase made with Angular and Django",
+  "API_URL": "/api/v1"
+}

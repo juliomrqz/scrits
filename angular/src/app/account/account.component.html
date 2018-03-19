@@ -1,0 +1,61 @@
+<scrits-toolbar class="toolbar" [text]="toolbar"></scrits-toolbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Basic details</div>
+                <div class="panel-body">
+                    <div *ngIf="userInfoErrorMessage" class="alert alert-danger" role="alert">
+                        {{ userInfoErrorMessage }}
+                    </div>
+
+                    <scrits-bounce-spinner *ngIf="showFormDetailsSpinner"></scrits-bounce-spinner>
+
+                    <form *ngIf="!showFormDetailsSpinner" [formGroup]="formDetails" (ngSubmit)="submitUserInfo(formDetails.value, formDetails.valid)">
+                        <div class="form-group">
+                            <label for="id_username">Username</label>
+                            <input formControlName="username" type="text" class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_first_name">First name</label>
+                            <input formControlName="first_name" type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_last_name">Last name</label>
+                            <input formControlName="last_name" type="text" class="form-control" placeholder="Last name">
+                        </div>
+
+                        <button [disabled]="!formDetails.dirty" type="submit" class="btn btn-success">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Password</div>
+                <div class="panel-body">
+                    <div *ngIf="userPasswordErrorMessage" class="alert alert-danger" role="alert">
+                        {{ userPasswordErrorMessage }}
+                    </div>
+
+                    <form [formGroup]="formPassword" (ngSubmit)="submitUserPassword(formPassword.value, formPassword.valid)">
+                        <div class="form-group">
+                            <label for="id_old_password">Old Password</label>
+                            <input formControlName="old_password" type="password" class="form-control" placeholder="Old Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_new_password1">New Password</label>
+                            <input formControlName="new_password1" type="password" class="form-control" placeholder="New Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_new_password2">Repeat Password</label>
+                            <input formControlName="new_password2" type="password" class="form-control" placeholder="Repeat Password">
+                        </div>
+                        <button [disabled]="!formPassword.dirty" type="submit" class="btn btn-success">Change</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

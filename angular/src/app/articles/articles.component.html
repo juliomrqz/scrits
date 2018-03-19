@@ -1,0 +1,83 @@
+<scrits-toolbar class="toolbar" [text]="toolbar">
+    <div class="actions">
+        <a [routerLink]="['/articles/create']" class="btn btn-success pull-right">
+            <i class="fa fa-plus" aria-hidden="true"></i> Create
+        </a>
+    </div>
+</scrits-toolbar>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body row">
+                    <form [formGroup]="searchForm" (ngSubmit)="submitSearchForm(searchForm)" novalidate>
+
+                        <div class="col-xs-10">
+                            <input formControlName="searchTerm" type="text" class="form-control" placeholder="Search term">
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="submit" class="btn btn-primary btn-block">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!showSpinner">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+
+                <div class="list-group">
+                    <a *ngFor="let article of articles | paginate: { id: paginationId, itemsPerPage: articlesPerPage, currentPage: currentPage, totalItems: totalArticles }" class="list-group-item">
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="list-group-item-heading">
+                                    <a [routerLink]="['/articles', article.id]"><strong>{{ article.title }}</strong></a>
+
+                                    <span *ngIf="article.status === 0" class="label label-default">
+                                        {{ 'draft' | uppercase }}
+                                    </span>
+                                    <span *ngIf="article.status === 1" class="label label-success">
+                                        {{ 'published' | uppercase }}
+                                    </span>
+
+                                    <div>
+                                        <i aria-hidden="true" class="fa fa-folder-o"></i> {{ article.category.title }}
+                                    </div>
+                                </div>
+                                <p class="list-group-item-text" *ngIf="article.description">
+                                    {{ article.description }}
+                                </p>
+                            </div>
+                            <div class="col-lg-3">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                        <time [tooltip]="article.created | amDateFormat:'MMM D, YYYY - hh:mm a'">
+                                          {{ article.created | amDateFormat:'MMM D, YYYY' }}
+                                        </time>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-star-o" aria-hidden="true"></i> {{ article.total_votes }}
+                                    </li>
+                                    <li *ngIf="article.author.first_name || article.author.last_name">
+                                        <i class="fa fa-user-o" aria-hidden="true"></i> {{ article.author.first_name }} {{ article.author.last_name }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div *ngIf="totalArticles > articlesPerPage" class="text-center">
+                <scrits-pagination [id]="paginationId" (pageChange)="onPageChange($event)" autoHide="true"></scrits-pagination>
+            </div>
+        </div>
+    </div>
+</div>
+
+<scrits-bounce-spinner *ngIf="showSpinner"></scrits-bounce-spinner>

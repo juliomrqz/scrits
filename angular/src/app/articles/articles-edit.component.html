@@ -1,0 +1,95 @@
+<scrits-toolbar class="toolbar" [text]="toolbar">
+    <div *ngIf="!showSpinner" class="actions">
+        <div class="pull-right">
+            <scrits-loading-icon *ngIf="showLoadingIcon"></scrits-loading-icon>
+            <button [disabled]="!articleForm.dirty" type="submit" class="btn btn-success" form="articleForm">
+                <span *ngIf="isEditMode"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</span>
+                <span *ngIf="!isEditMode"><i class="fa fa-plus" aria-hidden="true"></i> Create</span>
+            </button>
+            <button *ngIf="isEditMode" (click)="removeArticle()" class="btn btn-danger">
+                <i class="fa fa-trash" aria-hidden="true"></i> Remove
+            </button>
+            <button [routerLink]="['/articles']" class="btn btn-primary">
+                <i class="fa fa-ban" aria-hidden="true"></i> Cancel
+            </button>
+        </div>
+    </div>
+</scrits-toolbar>
+
+<scrits-bounce-spinner *ngIf="showSpinner"></scrits-bounce-spinner>
+
+<div *ngIf="!showSpinner" class="container-fluid">
+    <div class="row">
+        <form id="articleForm" [formGroup]="articleForm" (ngSubmit)="submitArticleForm(articleForm.value, articleForm.valid)">
+            <div class="col-lg-9">
+                <scrits-input [labelText]="'Title'"
+                              [idText]="'id_title'"
+                              [inputErrors]="articleForm.controls.title.errors"
+                              [isDirty]="articleForm.controls.title.dirty"
+                              [errorDefs]="{required: 'A title is required' }">
+                    <input formControlName="title" (ngModelChange)="titleOnChange($event)" type="text" name="title" id="id_title" placeholder="Title" class="form-control">
+                </scrits-input>
+
+                <scrits-input [labelText]="'Slug'"
+                              [idText]="'id_slug'"
+                              [inputErrors]="articleForm.controls.slug.errors"
+                              [isDirty]="articleForm.controls.slug.dirty"
+                              [errorDefs]="{
+                                required: 'A slug is required',
+                                slug: 'Enter a valid slug consisting of letters, numbers, underscores or hyphens.' }">
+                    <input formControlName="slug" type="text" name="slug" id="id_slug" class="form-control" placeholder="Slug">
+                </scrits-input>
+
+                <div class="form-group" [ngClass]="{'has-error': articleForm.controls.content.errors && articleForm.controls.content.dirty}">
+                    <label for="id_content" class="control-label">Content</label>
+                    <simple-mde formControlName="content"></simple-mde>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <div class="radio">
+                        <input formControlName="status" type="radio" name="status" id="status1" value="0">
+                        <label for="status1">
+                          Draft
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <input formControlName="status" type="radio" name="status" id="status2" value="1">
+                        <label for="status2">
+                          Published
+                        </label>
+                    </div>
+                </div>
+
+                <scrits-input [labelText]="'Category'"
+                              [idText]="'id_category'"
+                              [inputErrors]="articleForm.controls.category.errors"
+                              [isDirty]="articleForm.controls.category.dirty"
+                              [errorDefs]="{required: 'Select a valid category' }">
+
+                    <select formControlName="category" name="category" id="id_category" class="form-control">
+                      <option value="">Select a category</option>
+
+                      <option *ngFor="let category of categories" [ngValue]="category.id" [selected]="articleForm.controls.category.value === category.id">
+                        {{ category.title }}
+                      </option>
+                    </select>
+                </scrits-input>
+
+                <scrits-input [labelText]="'Description'"
+                              [idText]="'id_description'"
+                              [inputErrors]="articleForm.controls.description.errors"
+                              [isDirty]="articleForm.controls.description.dirty"
+                              [errorDefs]="{maxlength: 'Maximun 200 characters are allowed.'}">
+                    <textarea formControlName="description" name="description" id="id_description" class="form-control" rows="3" placeholder="Description"></textarea>
+                </scrits-input>
+
+                <div class="form-group">
+                    <label for="id_tags" class="control-label">Tags</label>
+                    <input formControlName="tags" type="text" name="tags" class="form-control" id="id_tags" placeholder="Tags">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

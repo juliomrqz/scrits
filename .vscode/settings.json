@@ -13,5 +13,6 @@
     "files.encoding": "utf8",
     "files.eol": "\n",
     "files.insertFinalNewline": true,
-    "vsicons.presets.angular": false
+    "vsicons.presets.angular": false,
+    "python.pythonPath": "/Users/Julio/.pyenv/versions/3.6.2/bin/python"
 }

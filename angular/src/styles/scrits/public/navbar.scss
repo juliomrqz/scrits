@@ -1,0 +1,14 @@
+.public {
+    .navbar {
+        flex: 0 1 auto;
+        margin-bottom: 0;
+    }
+    .navbar.home {
+        margin-bottom: 0;
+        border-bottom: none;
+        .navbar-nav>li>.dropdown-menu {
+            border-top-right-radius: $border-radius-base;
+            border-top-left-radius: $border-radius-base;
+        }
+    }
+}

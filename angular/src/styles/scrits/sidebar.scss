@@ -1,0 +1,89 @@
+.sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: $sidebar-width;
+    width: 0;
+    height: 100%;
+    margin-left: -$sidebar-width;
+    overflow-y: auto;
+    background: $sidebar-bg-color;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper.toggled .sidebar-wrapper {
+    width: $sidebar-width;
+}
+
+.sidebar-nav {
+    color: $gray-light;
+    position: absolute;
+    top: 0;
+    width: $sidebar-width;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    ul {
+        @include list-unstyled;
+    }
+    li {
+        text-indent: 20px;
+        line-height: 40px;
+        &.header {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $gray;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            line-height: inherit;
+            margin-bottom: 10px;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+            color: $gray-light;
+            &:hover,
+            &.active {
+                background-color: $sidebar-item-active-color;
+                text-decoration: none;
+            }
+            &.active {
+                box-shadow: inset 3px 0 0 $brand-info;
+                background-color: $sidebar-item-active-color;
+            }
+            &:active,
+            &:focus {
+                text-decoration: none;
+            }
+            .fa {
+                display: inline;
+                margin-right: 5px;
+            }
+        }
+    }
+    >.sidebar-brand {
+        font-size: 18px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            color: $gray-light;
+            display: inline-block;
+            text-decoration: none;
+            &:hover {
+                color: #fff;
+                background: none;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .sidebar-wrapper {
+        width: $sidebar-width;
+    }
+    .wrapper.toggled .sidebar-wrapper {
+        width: 0;
+    }
+}

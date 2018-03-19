@@ -1,0 +1,78 @@
+<scrits-toolbar [text]="toolbar" class="toolbar" >
+    <div class="actions" *ngIf="!showSpinner">
+        <div class="pull-right">
+            <button (click)="removeArticle()" class="btn btn-danger" type="button">
+                <i class="fa fa-trash" aria-hidden="true"></i> Remove
+            </button>
+
+            <a [routerLink]="['/articles', articleId, 'edit']" class="btn btn-primary">
+                <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+            </a>
+        </div>
+    </div>
+</scrits-toolbar>
+
+<scrits-bounce-spinner *ngIf="showSpinner"></scrits-bounce-spinner>
+
+<div *ngIf="!showSpinner" class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    Visits
+                    <div class="h2">{{ article.visits }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    Total votes
+                    <div class="h2">{{ article.total_votes }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    Total Upvotes
+                    <div class="h2">{{ article.total_upvotes }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    Total Downvotes
+                    <div class="h2">{{ article.total_downvotes }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default article-detail-content">
+                <div class="panel-body">
+                    <h1>{{ article.title }}</h1>
+                    <p *ngIf="article.description" class="text-muted">
+                        {{ article.description }}
+                    </p>
+                    <p [innerHTML]="article.content_html"></p>
+
+                    <p class="text-right" *ngIf="article.tags">
+                        Tags:
+
+                        <ng-template ngFor let-tag [ngForOf]="article.tags">
+                            <span class="label label-default">{{ tag }}</span>
+                        </ng-template>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

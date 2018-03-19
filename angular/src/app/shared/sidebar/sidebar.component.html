@@ -1,0 +1,31 @@
+<div class="sidebar-nav">
+    <div class="sidebar-brand">
+        <a [routerLink]="['/']" class="pull-left">Scrits</a>
+    </div>
+
+    <ul>
+        <li class="header">Main</li>
+
+        <li>
+            <a [routerLink]="['/categories']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <i class="fa fa-folder" aria-hidden="true"></i> Categories
+            </a>
+        </li>
+
+        <li>
+            <a [routerLink]="['/articles']" [routerLinkActive]="['active']">
+                <i class="fa fa-file-text" aria-hidden="true"></i> Articles
+            </a>
+        </li>
+    </ul>
+
+    <ul>
+        <li class="header">Settings</li>
+        <li>
+            <a [routerLink]="['/account']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <i class="fa fa-user" aria-hidden="true"></i> Account
+            </a>
+        </li>
+    </ul>
+
+</div>
