@@ -25,7 +25,7 @@ class CustomSecretBallotMiddleware(object):
         return response
 
     def generate_token(self, request):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return request.user.username
         else:
             try:

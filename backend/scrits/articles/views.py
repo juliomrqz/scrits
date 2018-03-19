@@ -69,7 +69,7 @@ class ArticleVoteView(MessageMixin, JSONResponseMixin, AjaxResponseMixin, View):
         try:
             # Retrieve token
             token = request.secretballot_token
-            if request.user.is_authenticated():
+            if request.user.is_authenticated:
                 token = request.user.pk
 
             # Determine user vote

@@ -16,7 +16,9 @@ class Vote(models.Model):
     vote = models.SmallIntegerField(choices=VOTE_CHOICES)
 
     # generic foreign key to the model being voted upon
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(
+        ContentType,
+        on_delete=models.deletion.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
     created_at = models.DateTimeField(

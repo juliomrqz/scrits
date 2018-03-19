@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
@@ -22,7 +19,7 @@ urlpatterns = [
     url(r'^users/', include('scrits.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
+    # API
     url(r'^api/v1/', include('scrits.api.urls', namespace='api')),
 
 
@@ -39,7 +36,6 @@ if settings.DEBUG:
     ]
     if 'debug_toolbar' in settings.INSTALLED_APPS:
         import debug_toolbar
-
-        urlpatterns += [
+        urlpatterns = [
             url(r'^__debug__/', include(debug_toolbar.urls)),
-        ]
+        ] + urlpatterns

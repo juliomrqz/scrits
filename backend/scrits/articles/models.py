@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.db import models
+from django.urls import reverse
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
@@ -31,9 +31,14 @@ class Article(TimeStampedModel):
         blank=True
     )
 
-    category = models.ForeignKey(Category, related_name='articles')
+    category = models.ForeignKey(
+        Category, 
+        related_name='articles',
+        on_delete=models.deletion.CASCADE)
 
-    author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.deletion.CASCADE)
 
     status = models.IntegerField(choices=STATUS, default=STATUS.draft)
 

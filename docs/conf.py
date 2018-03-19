@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # Scrits documentation build configuration file, created by
 # sphinx-quickstart.
 #
@@ -10,8 +8,6 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
-from __future__ import unicode_literals
 
 import os
 import sys
@@ -44,7 +40,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Scrits'
-copyright = """2017, Julio Marquez"""
+copyright = """2018, Julio Marquez"""
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -234,7 +230,7 @@ man_pages = [
 texinfo_documents = [
     ('index', 'scrits', 'Scrits Documentation',
      """Julio Marquez""", 'Scrits',
-     """A simple markdown powered Knowledgebase for Django""", 'Miscellaneous'),
+     """A simple markdown powered Knowledge Base made with Angular and Django""", 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

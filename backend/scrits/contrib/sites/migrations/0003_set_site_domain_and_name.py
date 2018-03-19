@@ -3,10 +3,6 @@ To understand why this file is here, please read:
 
 http://cookiecutter-django.readthedocs.io/en/latest/faq.html#why-is-there-a-django-contrib-sites-directory-in-cookiecutter-django
 """
-# -*- coding: utf-8 -*-
-
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.db import migrations
 
@@ -17,7 +13,7 @@ def update_site_forward(apps, schema_editor):
     Site.objects.update_or_create(
         id=settings.SITE_ID,
         defaults={
-            'domain': 'bazzite.com',
+            'domain': 'scrits-demo.bazzite.com',
             'name': 'Scrits'
         }
     )

@@ -1,21 +1,28 @@
-# Local development dependencies go here
--r base.txt
-coverage==4.3.4
-django-coverage-plugin==1.5.0
-Sphinx==1.5.5
-django-extensions==1.7.8
-Werkzeug==0.12.1
-django-test-plus==1.0.17
-factory-boy==2.8.1
+-r ./base.txt
 
-django-debug-toolbar==1.7
+Werkzeug==0.14.1  # https://github.com/pallets/werkzeug
+ipdb==0.11  # https://github.com/gotcha/ipdb
+Sphinx==1.7.1  # https://github.com/sphinx-doc/sphinx
+psycopg2-binary==2.7.4  # https://github.com/psycopg/psycopg2
+isort==4.3.4
 
-# improved REPL
-ipdb==0.10.2
+# Testing
+# ------------------------------------------------------------------------------
+pytest==3.4.2  # https://github.com/pytest-dev/pytest
+pytest-sugar==0.9.1  # https://github.com/Frozenball/pytest-sugar
 
-pytest-django==3.1.2
-pytest-sugar==0.8.0
+# Code quality
+# ------------------------------------------------------------------------------
+flake8==3.5.0  # https://github.com/PyCQA/flake8
+coverage==4.5.1  # https://github.com/nedbat/coveragepy
 
-isort==4.2.5
+# Django
+# ------------------------------------------------------------------------------
+factory-boy==2.10.0  # https://github.com/FactoryBoy/factory_boy
+django-test-plus==1.0.22  # https://github.com/revsys/django-test-plus
 
-django-cors-headers==2.0.2
+django-debug-toolbar==1.9.1  # https://github.com/jazzband/django-debug-toolbar
+django-extensions==2.0.6  # https://github.com/django-extensions/django-extensions
+django-coverage-plugin==1.5.0  # https://github.com/nedbat/django_coverage_plugin
+pytest-django==3.1.2  # https://github.com/pytest-dev/pytest-django
+django-cors-headers==2.2.0

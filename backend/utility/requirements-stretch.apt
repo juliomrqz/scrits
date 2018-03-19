@@ -1,4 +1,4 @@
-##basic build dependencies of various Django apps for Ubuntu Trusty 14.04
+##basic build dependencies of various Django apps for Debian Jessie 9.x
 #build-essential metapackage install: make, gcc, g++,
 build-essential
 #required to translate
@@ -13,10 +13,10 @@ zlib1g-dev
 libpq-dev
 
 ##Pillow dependencies
-libtiff4-dev
-libjpeg8-dev
+libtiff5-dev
+libjpeg62-turbo-dev
 libfreetype6-dev
-liblcms1-dev
+liblcms2-dev
 libwebp-dev
 
 ##django-extensions

@@ -13,6 +13,7 @@ router.register(r'categories', CategoryViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
+app_name = 'api'
 urlpatterns = [
     url(r'^', include(router.urls)),
 

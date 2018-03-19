@@ -1,6 +1,7 @@
 Scrits
 ======
 
+A simple markdown powered Knowledge Base made with Angular and Django
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
@@ -16,15 +17,6 @@ Scrits
 
 
 :License: MIT
-
-
-A markdown powered Knowledgebase for Django
-
-
-Documentation
--------------
-
-The full documentation is at https://docs.bazzite.com/scrits-django/.
 
 
 Settings
@@ -73,6 +65,22 @@ Moved to `Live reloading and SASS compilation`_.
 
 
 
+Celery
+^^^^^^
+
+This app comes with Celery.
+
+To run a celery worker:
+
+.. code-block:: bash
+
+    cd scrits
+    celery -A scrits.taskapp worker -l info
+
+Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
+
+
+
 
 
 Sentry
@@ -98,12 +106,5 @@ See detailed `cookiecutter-django Heroku documentation`_.
 .. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html
 
 
-
-Docker
-^^^^^^
-
-See detailed `scrits-django Docker documentation`_.
-
-.. _`scrits-django Docker documentation`: https://scrits-django.bazzite.com/en/latest/docker_ec2.html
 
 
