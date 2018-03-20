@@ -51,7 +51,7 @@ django-taggit==0.22.2
 
 # django-secretballot==0.6.0
 
-djangorestframework==3.6.2
+djangorestframework==3.7.7
 django-taggit-serializer==0.1.5
 
 django-rest-auth==0.9.1
