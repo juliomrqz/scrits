@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MomentModule } from 'angular2-moment';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { RestangularModule } from 'ngx-restangular';
+import { CookieService } from 'ngx-cookie';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -17,6 +19,7 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
+import { RestangularConfigFactory } from './app.http-handler';
 
 import { HomeComponent } from './home';
 import { AccountComponent } from './account';
@@ -85,6 +88,8 @@ interface StoreType {
     TooltipModule.forRoot(),
 
     SharedModule.forRoot(),
+
+    RestangularModule.forRoot([CookieService], RestangularConfigFactory)
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

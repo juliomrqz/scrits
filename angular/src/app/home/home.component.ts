@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     this.articlesService.list(undefined, undefined, true)
       .subscribe(
       response => {
-        this.articlesByVotes = response.results;
+        this.articlesByVotes = response;
         this.showMostVotedSpinner = false;
       },
       error => this.articlesByVotesErrorMessage = <any>error
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
     this.articlesService.list()
       .subscribe(
       response => {
-        this.articlesByCreated = response.results;
+        this.articlesByCreated = response;
         this.showLatestSpinner = false;
       },
       error => this.articlesByCreatedErrorMessage = <any>error

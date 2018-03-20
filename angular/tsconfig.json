@@ -27,8 +27,7 @@
       "jasmine",
       "node",
       "uglify-js",
-      "webpack",
-      "urijs"
+      "webpack"
     ]
   },
   "exclude": [

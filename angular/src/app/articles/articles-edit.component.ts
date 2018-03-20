@@ -185,7 +185,7 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
   getCategories() {
     this.categoriesService.list()
       .subscribe(
-      response => this.categories = response.results,
+      response => this.categories = response,
       error => this.categoriesErrorMessage = <any>error
       );
   }

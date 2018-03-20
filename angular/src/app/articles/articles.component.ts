@@ -69,8 +69,8 @@ export class ArticlesComponent implements OnInit {
     this.articlesService.list(searchTerm, pageNumber)
       .subscribe(
       response => {
-        this.articles = response.results;
-        this.totalArticles = response.count;
+        this.articles = response;
+        this.totalArticles = (<any>response).total();
 
         if (pageNumber) {
           this.currentPage = pageNumber;

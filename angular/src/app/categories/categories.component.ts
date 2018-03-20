@@ -65,9 +65,9 @@ export class CategoriesComponent implements OnInit {
 
     this.categoriesService.list(pageNumber)
       .subscribe(
-      response => {
-        this.categories = response.results;
-        this.totalCategories = response.count;
+        response => {
+        this.categories = response;
+        this.totalCategories = (<any>response).total();
 
         if (pageNumber) {
           this.currentPage = pageNumber;

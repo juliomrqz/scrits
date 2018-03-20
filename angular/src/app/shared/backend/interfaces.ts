@@ -26,13 +26,6 @@ export interface ObjectList<T> {
   readonly results: T[];
 }
 
-export interface ApiQueryString {
-  format?: string;
-  search?: string;
-  page?: number;
-  ordering?: string;
-}
-
 // Category interface
 export interface Category {
   readonly id?: number;
@@ -63,7 +56,7 @@ export interface ArticleExtended {
   description?: string;
   status: number;
   tags?: any;
-  category: any; // It could be an interger or a Category Object
+  category: any; // It could be an integer or a Category Object
   readonly total_downvotes?: number;
   readonly total_upvotes?: number;
   readonly total_votes?: number;
