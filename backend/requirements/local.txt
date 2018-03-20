@@ -18,4 +18,4 @@ pytest-sugar==0.9.1
 
 isort==4.3.4
 
-django-cors-headers==2.0.2
+django-cors-headers==2.2.0
