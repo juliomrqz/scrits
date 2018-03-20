@@ -7,8 +7,7 @@ import environ
 ROOT_DIR = environ.Path(__file__) - 3  # (scrits/config/settings/base.py - 3 = scrits/)
 APPS_DIR = ROOT_DIR.path('scrits')
 
-ANGULAR_ROOT_DIR = environ.Path(__file__) - 4  # (scrits/config/settings/common.py - 4 = /)
-ANGULAR_DIR = ANGULAR_ROOT_DIR.path('angular')
+ANGULAR_DIR = ROOT_DIR.path('angular')
 
 env = environ.Env()
 
