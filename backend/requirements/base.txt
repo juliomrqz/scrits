@@ -41,7 +41,7 @@ django-redis==4.9.0
 redis>=2.10.5
 
 rcssmin==1.0.6
-django-compressor==2.1.1
+django-compressor==2.2
 
 unicode-slugify==0.1.3
 
