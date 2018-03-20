@@ -19,4 +19,4 @@ The full documentation is at https://www.bazzite.com/docs/scrits.
 
 ## Demo
 
-A Demo application is at https://scrits-demo.bazzite.com.
+A Demo application is at https://scrits.bazzite.com.
