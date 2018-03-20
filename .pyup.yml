@@ -1,0 +1,12 @@
+schedule: every day
+branch: develop
+label_prs: update
+branch_prefix: hotfix/
+
+requirements:
+  - backend/requirements/local.txt:
+      update: all
+  - backend/requirements/base.txt:
+      update: insecure
+  - backend/requirements/production.txt:
+      update: insecure
