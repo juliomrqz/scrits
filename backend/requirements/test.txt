@@ -3,11 +3,11 @@
 
 
 
-coverage==4.3.4
-flake8==3.3.0 # pyup: != 2.6.0
-django-test-plus==1.0.17
-factory-boy==2.8.1
+coverage==4.5.1
+flake8==3.5.0 # pyup: != 2.6.0
+django-test-plus==1.0.22
+factory-boy==2.10.0
 
 # pytest
 pytest-django==3.1.2
-pytest-sugar==0.8.0
+pytest-sugar==0.9.1
