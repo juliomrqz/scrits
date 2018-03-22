@@ -1,7 +1,7 @@
 Scrits
 ======
 
-A simple markdown powered Knowledge Base made with Angular and Django
+A simple markdown powered Knowledge Base built with Angular and Django
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
