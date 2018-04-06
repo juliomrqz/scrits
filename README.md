@@ -5,6 +5,7 @@
 [![Build Status](https://img.shields.io/travis/bazzite/scrits.svg?style=flat-square)](https://travis-ci.org/bazzite/scrits)
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/bazzite/scrits)
 [![License](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](https://raw.githubusercontent.com/bazzite/scrits/develop/LICENSE)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbazzite%2Fscrits.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbazzite%2Fscrits?ref=badge_shield)
 
 # Scrits
 
@@ -50,3 +51,6 @@ Code released under the [Apache License 2.0][license-page].
 [bazzite-website]: https://www.bazzite.com?utm_source=github&utm_medium=readme&utm_campaign=scrits
 [contact-page]: https://www.bazzite.com/contact?utm_source=github&utm_medium=readme&utm_campaign=scrits
 [license-page]: https://www.bazzite.com/docs/scrits/license?utm_source=github&utm_medium=readme&utm_campaign=scrits
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbazzite%2Fscrits.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbazzite%2Fscrits?ref=badge_large)
