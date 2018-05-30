@@ -23,9 +23,11 @@
     "run-sequence": "^2.1.1"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.0.0 <9"
   },
   "scripts": {
-    "dev": "gulp"
+    "dev": "gulp",
+    "heroku-prebuild": "cd angular && yarn && yarn run build:prod && cd ..",
+    "heroku-postbuild": "pip install -r requirements/local.txt && pip install -r requirements.txt && python manage.py flush --noinput && python manage.py migrate && python manage.py loaddata fixtures/test-data.json && rm -rf ./angular/node_modules && python manage.py collectstatic"
   }
 }
