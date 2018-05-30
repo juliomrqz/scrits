@@ -7,19 +7,19 @@
   {% include 'includes/page_header.html' with category_url=category_url category_title=article.category.title article_title=article.title %}
 
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-7 col-md-offset-1">
-        <article>
-          <header>
+    <div class="row ml-2 mr-2">
+      <div class="col-md-9">
+        <article class="mb-4">
+          <header class="mb-4">
             <h1>{{ article.title }}</h1>
             {% if article.description  %}<p>{{ article.description }}</p>{% endif %}
           </header>
-          <div class="panel panel-default">
-            <div class="panel-body">
+          <div class="card card-default mb-5">
+            <div class="card-body">
               {{ article.content | apply_markdown | safe }}
             </div>
-            <div class="panel-footer">
-              <ul class="list-unstyled">
+            <div class="card-footer">
+              <ul class="list-unstyled mb-0">
                 <li>
                   <strong>Updated on</strong> <time pubdate="pubdate">{{ article.modified }}</time>
                 </li>
@@ -29,7 +29,9 @@
                 <li>
                   <ul class="list-inline">
                     {% for tag in article.tags.names %}
-                      <li><span class="label label-default">{{ tag }}</span></li>
+                      <li class="list-inline-item">
+                        <span class="badge badge-pill badge-primary">{{ tag }}</span>
+                      </li>
                     {% endfor %}
                   </ul>
                 </li>
@@ -37,37 +39,35 @@
             </div>
           </div>
 
-          <div class="well" id="voting-box">
-            {% trans "Was this article helpful?" %}
-            <a id="upvote-link" href="{% url 'articles:article_upvote' article.slug %}"
-              data-toggle="tooltip"
-              title="{% trans 'Yes' %}">
-              <span class="fa fa-thumbs-up"></span>
-            </a>
-            |
-            <a id="downvote-link" href="{% url 'articles:article_downvote' article.slug %}"
-              data-toggle="tooltip"
-              title="{% trans 'No' %}">
-            <span class="fa fa-thumbs-down"></span>
-            </a>
+          <div class="card bg-light" id="voting-box">
+            <div class="card-body">
+              {% trans "Was this article helpful?" %}
+              <a id="upvote-link" href="{% url 'articles:article_upvote' article.slug %}">
+                {% trans 'Yes' %}
+              </a>
+              |
+              <a id="downvote-link" href="{% url 'articles:article_downvote' article.slug %}">
+                {% trans 'No' %}
+              </a>
 
-            <br>
-
-            {% if article.vote_total %}
-              <small>{% blocktrans with upvotes=article.total_upvotes totalvotes=article.total_upvotes|add:article.total_downvotes %}{{ upvotes }} out of {{ totalvotes }} found this helpful{% endblocktrans %}</small>
-            {% endif %}
+              {% if article.vote_total %}
+                <strong class="ml-4">
+                  {% blocktrans with upvotes=article.total_upvotes totalvotes=article.total_upvotes|add:article.total_downvotes %}{{ upvotes }} out of {{ totalvotes }} found this helpful{% endblocktrans %}
+                </strong>
+              {% endif %}
+            </div>
           </div>
         </article>
-
       </div>
 
       <div class="col-md-3">
-        <div class="well">
-          <strong>Latest Articles</strong>
-          {% recent_articles %}
+        <div class="card bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Latest Articles</h5>
+            {% recent_articles %}
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 

@@ -6,41 +6,46 @@
   {% include 'includes/page_header.html' with category_title=category.title %}
 
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-7 col-md-offset-1">
-        <div>
-          <header>
-            <h1>{{ category.title }}</h1>
-            {{ category.description }}
-          </header>
+    <div class="row ml-2 mr-2">
+      <div class="col-md-9">
+        <div class="card card-default mb-5">
+          <div class="card-body">
+            <header>
+              <h1>{{ category.title }}</h1>
+              {{ category.description }}
+            </header>
 
-          <hr>
+            <hr>
 
-          <section class="articles-list">
-            {% for article in articles_list %}
-              <article>
-                <a href="{% url 'articles:article_detail' article.slug %}" class="title">{{ article.title }}</a>
+            <section>
+              {% for article in articles_list %}
+                <article class="mb-4">
+                  <a href="{% url 'articles:article_detail' article.slug %}">
+                    <h2 class="h3">{{ article.title }}</h2>
+                  </a>
 
-                <p class="description">
-                  {% if article.description %}
-                    {{ article.description | truncatechars:200 }}
-                  {% else %}
-                    {{ article.content | apply_markdown | safe | striptags | truncatechars:200 }}
-                  {% endif %}
-                </p>
-              </article>
-            {% endfor %}
-          </section>
+                  <p>
+                    {% if article.description %}
+                      {{ article.description | truncatechars:200 }}
+                    {% else %}
+                      {{ article.content | apply_markdown | safe | striptags | truncatechars:200 }}
+                    {% endif %}
+                  </p>
+                </article>
+              {% endfor %}
+            </section>
+          </div>
         </div>
       </div>
 
       <div class="col-md-3">
-        <div class="well">
-          <strong>Latest Articles</strong>
-          {% recent_articles %}
+        <div class="card bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Latest Articles</h5>
+            {% recent_articles %}
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 

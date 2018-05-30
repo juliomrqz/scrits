@@ -1,3 +1,5 @@
+"use strict";
+
 $(function() {
   $("[data-toggle='tooltip']").tooltip();
 });
@@ -11,7 +13,7 @@ function getCookie(name) {
     for (var i = 0; i < cookies.length; i++) {
       var cookie = jQuery.trim(cookies[i]);
       // Does this cookie string begin with the name we want?
-      if (cookie.substring(0, name.length + 1) === (name + "=")) {
+      if (cookie.substring(0, name.length + 1) === name + "=") {
         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
         break;
       }
@@ -25,7 +27,7 @@ var csrftoken = getCookie("csrftoken");
 
 // Send csrftoken value to every Ajax request
 $.ajaxSetup({
-  beforeSend(xhr) {
+  beforeSend: function beforeSend(xhr) {
     if (!this.crossDomain) {
       xhr.setRequestHeader("X-CSRFToken", csrftoken);
     }
@@ -40,11 +42,11 @@ $("#upvote-link, #downvote-link").click(function(e) {
     type: "POST",
     url: $(this).attr("href"),
     async: false,
-    success(result) {
-      $('#voting-box').html(result.message);
+    success: function success(result) {
+      $("#voting-box .card-body").html(result.message);
     },
-    error(result) {
-      $('#voting-box').html(result.message);
+    error: function error(result) {
+      $("#voting-box .card-body").html(result.message);
     }
   });
 });

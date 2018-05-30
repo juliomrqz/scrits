@@ -4,33 +4,44 @@
 {% block title %}User: {{ object.username }}{% endblock %}
 
 {% block content %}
-<div class="container">
 
-  <div class="row">
-    <div class="col-sm-12">
+<div class="container-fluid">
+  <div class="row" style="height: 80vh;">
+    <div class="col-md-8 mx-auto">
+      <div class="card card-default mb-5 mt-4">
+        <div class="card-body">
+          <h1 class="card-title">User: {{ object.username }}</h1>
 
-      <h2>{{ object.username }}</h2>
-      {% if object.name %}
-        <p>{{ object.name }}</p>
-      {% endif %}
+          <dl>
+            {% if object.name %}
+            <dt>Name:</dt><dd>{{ object.name }}</dd>
+            {% endif %}
+            <dt>Email:</dt><dd>{{ object.email }}</dd>
+            <dt>Date Joined:</dt><dd>{{ object.date_joined }}</dd>
+            <dt>Last Login:</dt><dd>{{ object.last_login }}</dd>
+          </dl>
+        </div>
+
+        <div class="card-footer">
+          {% if object == request.user %}
+          <!-- Action buttons -->
+          <div class="row">
+            <div class="col-sm-12">
+              <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">
+                Update Profile
+              </a>
+              <a class="btn btn-info" href="{% url 'account_email' %}" role="button">
+                Change E-Mail Address
+              </a>
+            </div>
+          </div>
+          <!-- End Action buttons -->
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
-
-{% if object == request.user %}
-<!-- Action buttons -->
-<div class="row">
-
-  <div class="col-sm-12">
-    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
-    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
-    <!-- Your Stuff: Custom user template urls -->
-  </div>
-
 </div>
-<!-- End Action buttons -->
-{% endif %}
 
-
-</div>
 {% endblock content %}
 

@@ -22,94 +22,116 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% compress css %}
     <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endcompress %}
-    {% endblock %}
 
+    {% endblock %}
   </head>
 
   <body class="{% block body_class %}public{% endblock %}">
     {% block body %}
-      <div class="wrapper">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
+    <div class="wrapper">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} mb-0 text-center">
+            {{ message }}
 
-        <nav class="navbar navbar-inverse navbar-static-top{% block navcss %}{% endblock %}">
-          <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="{% url 'home:main' %}">Scrits</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'about' %}">About</a></li>
-
-                {% if request.user.is_authenticated %}
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Account <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a></li>
-                  </ul>
-                </li>
-                {% else %}
-                  <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
-                  <li><a href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
-                {% endif %}
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
-
-        <main>
-          {% block container %}
-          <div class="container-fluid">
-            {% block content %}
-              <p>Use this document as a way to quick start any new project.</p>
-            {% endblock content %}
-          </div> <!-- /container -->
-          {% endblock container %}
-        </main>
-
-        <footer>
-          <div class="container">
-            <p class="pull-right">
-            <a href="#">Back to top</a></p>
-            <p>© 2017 Scrits · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </footer>
+        {% endfor %}
+      {% endif %}
 
-        {% block modal %}{% endblock modal %}
-      </div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary{% block navcss %}{% endblock %}">
+        <a class="navbar-brand" href="{% url 'home:main' %}">
+          Scrits
+          <span class="badge badge-light badge-pill">beta</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Account
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="{% url 'users:detail' request.user.username  %}">
+                  {% trans "My Profile" %}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'account_logout' %}">
+                  {% trans "Sign Out" %}
+                </a>
+              </ul>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">
+                {% trans "Sign Up" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">
+                {% trans "Sign In" %}
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </nav>
+
+      <main>
+        {% block container %}
+        <div class="container-fluid">
+          {% block content %}
+          <p>Use this document as a way to quick start any new project.</p>
+          {% endblock content %}
+        </div>
+        <!-- /container -->
+        {% endblock container %}
+      </main>
+
+      <footer class="bg-light pt-4 pb-4">
+        <div class="container mt-2">
+          <p class="float-right">
+            <a href="./#">Back to top</a>
+          </p>
+          <p>&copy; 2018 Scrits
+        </div>
+      </footer>
+
+      {% block modal %}{% endblock modal %}
+    </div>
     {% endblock body %}
 
     <!-- Le javascript
-    ================================================== -->
+      ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
-      <script src="https://cdn.jsdelivr.net/g/jquery@3.1.1,bootstrap@3.3.7"></script>
-      <!-- Your stuff: Third-party javascript libraries go here -->
 
-      <!-- place project specific Javascript in this file -->
-      {% compress js %}
-      <script src="{% static 'js/main.js' %}"></script>
-      {% endcompress %}
+    <!-- Vendor dependencies bundled as one file-->
+    {% compress js %}
+    <script src="{% static 'js/vendors.js' %}"></script>
+    {% endcompress %}
 
-    {% endblock javascript %}
+    <!-- place project specific Javascript in this file -->
+    {% compress js %}
+    <script src="{% static 'js/project.js' %}"></script>
+    {% endcompress %} {% endblock javascript %}
   </body>
 </html>
-

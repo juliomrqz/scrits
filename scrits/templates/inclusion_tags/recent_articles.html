@@ -1,5 +1,5 @@
-<ul class="side-list">
+<ul class="list-unstyled">
   {% for article in articles %}
-    <li><a href="{% url 'articles:article_detail' article.slug %}">{{ article.title }}</a></li>
+    <li class="mb-2"><a href="{% url 'articles:article_detail' article.slug %}">{{ article.title }}</a></li>
   {% endfor %}
 </ul>

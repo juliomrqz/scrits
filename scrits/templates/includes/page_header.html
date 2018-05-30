@@ -1,27 +1,29 @@
-<div class="breadcrumb-header">
+<div class="pt-4">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-7 col-md-offset-1">
-        <ol class="breadcrumb">
-          <li><a href="{% url 'home:main' %}">Home</a></li>
-          {% if category_url %}
-          <li><a href="{{ category_url }}">{{ category_title }}</a></li>
-          {% else %}
-          <li>{{ category_title }}</li>
-          {% endif %}
-          {% if article_title %}
-          <li>{{ article_title }}</li>
-          {% endif %}
-        </ol>
+    <div class="row ml-2 mr-2">
+      <div class="col-md-9">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item">
+              <a href="{% url 'home:main' %}">Home</a>
+            </li>
+            {% if category_url %}
+            <li class="breadcrumb-item">
+              <a href="{{ category_url }}">{{ category_title }}</a>
+            </li>
+            {% else %}
+            <li class="breadcrumb-item">{{ category_title }}</li>
+            {% endif %}
+            {% if article_title %}
+            <li class="breadcrumb-item">{{ article_title }}</li>
+            {% endif %}
+          </ol>
+        </nav>
       </div>
 
       <div class="col-md-3">
-        <form class="form-horizontal" role="search">
-          <div class="form-group">
-            <div class="col-sm-12">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </div>
+        <form role="search">
+          <input type="text" class="form-control" placeholder="Search">
         </form>
       </div>
     </div>

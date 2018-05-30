@@ -5,52 +5,52 @@
 {% block navcss %} home{% endblock %}
 
 {% block container %}
-  <div class="page-header home-header">
-    <div class="container-fluid text-center">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>How can we help you?</h1>
+  <div class="home-header bg-primary pt-5 pb-5">
+    <div class="container-fluid text-center mt-3 mb-5">
+      <div class="col-md-6 mx-auto">
+        <h1 class="text-white mb-4">How can we help you?</h1>
 
-        <div class="form-group">
-            <div class="input-group">
-                <input class="form-control" type="text" name="search" placeholder="Have a Question?  Ask or enter a search term here." required/>
-                <span class="input-group-btn">
-                    <button class="btn btn-info" type="submit">
-                      <span class="fa fa-search" aria-hidden="true"></span>
-                      <span>Search</span>
-                    </button>
-                </span>
-            </div>
+        <div class="input-group mb-3">
+          <input class="form-control border-0" type="text" name="search" placeholder="Have a Question?  Ask or enter a search term here." required/>
+          <div class="input-group-append">
+            <button class="btn btn-light" type="submit">
+              Search
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-7 col-md-offset-1">
-        <ul class="home-category-list">
+  <div class="container-fluid bg-light pt-5">
+    <div class="row ml-2 mr-2">
+      <div class="col-md-9">
+        <div class="row">
           {% for category in categories_list %}
-            <li>
-              <a href="{% url 'categories:detail' category.slug %}">
-                <h2 class="title">{{ category.title }}</h2>
-                <div class="description">{{ category.description }}</div>
-              </a>
-            </li>
-          {% empty %}
+          <div class="col mb-4">
+            <a href="{% url 'categories:detail' category.slug %}">
+              <h2 class="text-dark">{{ category.title }}</h2>
+            </a>
+            <div class="description">{{ category.description }}</div>
+          </div>
+
+          {% if forloop.counter|divisibleby:2 %}
+          <div class="w-100"></div>
+          {% endif %}
 
           {% endfor %}
-        </ul>
+        </div>
       </div>
 
       <div class="col-md-3">
-        <div class="well">
-          <strong>Latest Articles</strong>
-          {% recent_articles %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Latest Articles</h5>
+            {% recent_articles %}
+          </div>
         </div>
       </div>
 
     </div>
   </div>
-
 {% endblock container %}
