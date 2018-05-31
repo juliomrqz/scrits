@@ -7,6 +7,12 @@
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://raw.githubusercontent.com/bazzite/scrits/develop/LICENSE)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbazzite%2Fscrits.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbazzite%2Fscrits?ref=badge_shield)
 
+<p align="center">
+  <a href="https://www.bazzite.com/products/scrits?utm_source=github&utm_medium=readme&utm_campaign=scrits" target="_blank">
+    <img src="https://raw.githubusercontent.com/bazzite/scrits/develop/docs/images/home.png" alt="Scrits" />
+  </a>
+</p>
+
 # Scrits
 
 A simple markdown powered Knowledge Base made with Angular and Django
