@@ -68,6 +68,9 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="{% url 'dashboard:home' %}">
+                  {% trans "Dashboard" %}
+                </a>
                 <a class="dropdown-item" href="{% url 'users:detail' request.user.username  %}">
                   {% trans "My Profile" %}
                 </a>
