@@ -25,6 +25,11 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+if settings.DEMO:
+    urlpatterns = [
+        url(r'^robots\.txt', TemplateView.as_view(template_name="robots-demo.txt", content_type="text/plain")),
+    ] + urlpatterns
+
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.

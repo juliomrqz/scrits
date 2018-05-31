@@ -18,6 +18,7 @@ if READ_DOT_ENV_FILE:
 
 # GENERAL
 # ------------------------------------------------------------------------------
+DEMO = env.bool('DJANGO_DEMO', True)
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool('DJANGO_DEBUG', False)
 # Local time zone. Choices are
@@ -210,6 +211,8 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+
+                'users.context_processors.demo',
             ],
         },
     },

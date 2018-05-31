@@ -12,6 +12,12 @@
   <div class="card-body">
     <h1 class="card-title text-center">{% trans "Sign In" %}</h1>
 
+    {% if demo %}
+    <div class="alert alert-info">
+      Demo <strong>user:</strong> admin, <strong>password:</strong> demopassword
+    </div>
+    {% endif %}
+
     {% get_providers as socialaccount_providers %}
 
     {% if socialaccount_providers %}
@@ -40,6 +46,13 @@
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
+
+      {% if demo %}
+      <div class="alert alert-warning">
+        This demo is reset every hour. Any changes you make will be deleted.
+      </div>
+      {% endif %}
+
       <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
       <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
     </form>
