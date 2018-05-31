@@ -68,6 +68,23 @@ gulp.task("styles", function() {
     .pipe(gulp.dest(paths.css));
 });
 
+gulp.task("styles-dashboard", function() {
+  return gulp
+    .src(paths.sass + "/dashboard.scss")
+    .pipe(
+      sass({
+        includePaths: [paths.bootstrapSass, paths.sass]
+      }).on("error", sass.logError)
+    )
+    .pipe(plumber()) // Checks for errors
+    .pipe(autoprefixer({ browsers: ["last 2 versions"] })) // Adds vendor prefixes
+    .pipe(pixrem()) // add fallbacks for rem units
+    .pipe(gulp.dest(paths.css))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(cssnano()) // Minifies the result
+    .pipe(gulp.dest(paths.css));
+});
+
 // Javascript minification
 gulp.task("scripts", function() {
   return gulp
@@ -122,6 +139,7 @@ gulp.task("browserSync", function() {
 // Watch
 gulp.task("watch", function() {
   gulp.watch(paths.sass + "/*.scss", ["styles"]);
+  gulp.watch(paths.sass + "/dashboard/*.scss", ["styles-dashboard"]);
   gulp.watch(paths.js + "/*.js", ["scripts"]).on("change", reload);
   gulp.watch(paths.images + "/*", ["imgCompression"]);
   gulp.watch(paths.templates + "/**/*.html").on("change", reload);
@@ -130,7 +148,7 @@ gulp.task("watch", function() {
 // Default task
 gulp.task("default", function() {
   runSequence(
-    ["styles", "scripts", "vendor-scripts", "imgCompression"],
+    ["styles", "styles-dashboard", "scripts", "vendor-scripts", "imgCompression"],
     ["runServer", "browserSync", "watch"]
   );
 });

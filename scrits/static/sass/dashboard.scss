@@ -1,0 +1,56 @@
+$web-font-path: "https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic" !default;
+@import url($web-font-path);
+
+/* Global varibles */
+@import "dashboard/layout/variables";
+
+/* Bootstrap */
+@import "dashboard/bootstrap/bootstrap";
+
+
+/* General */
+/* Bootstrap */
+@import "dashboard/layout/general";
+
+/* Font awesome */
+@import "dashboard/font-awesome/font-awesome";
+
+/* Wrapper */
+@import "dashboard/layout/wrapper";
+
+/* Sidebar */
+@import "dashboard/layout/sidebar";
+
+/* Content */
+@import "dashboard/layout/content";
+
+/* Toolbar */
+@import "dashboard/layout/toolbar";
+
+/* Activity */
+@import "dashboard/layout/activity";
+
+/* Forms */
+@import "dashboard/layout/forms";
+
+/* Forms */
+@import "dashboard/layout/spinners";
+
+/* Slim loading bar */
+@import "dashboard/vendors/slim-loading-bar";
+
+/* Public */
+/* General */
+@import "dashboard/layout/public/general";
+
+/* Home page */
+@import "dashboard/layout/public/home";
+
+/* Navbar */
+@import "dashboard/layout/public/navbar";
+
+/* Categories */
+@import "dashboard/layout/public/categories";
+
+/* Footer */
+@import "dashboard/layout/public/footer";

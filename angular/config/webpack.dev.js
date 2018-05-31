@@ -24,7 +24,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 module.exports = function (options) {
   const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
   const HOST = process.env.HOST || 'localhost';
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 3002;
 
   const METADATA = Object.assign({}, buildUtils.DEFAULT_METADATA, {
     host: HOST,
