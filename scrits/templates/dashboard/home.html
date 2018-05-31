@@ -31,12 +31,6 @@
 {% endblock body %}
 
 {% block javascript %}
-  <!-- place project specific Javascript in this file -->
-  <!-- {% compress js %}
-  <script src="{% static 'js/dashboard_shims.js' %}"></script>
-  <script src="{% static 'js/dashboard_main.js' %}"></script>
-  {% endcompress %} -->
-
   {% render_bundle 'inline' 'js' %}
   {% render_bundle 'polyfills' 'js' %}
   {% render_bundle 'main' 'js' %}
