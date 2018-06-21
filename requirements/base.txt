@@ -27,5 +27,5 @@ django-webpack-loader==0.6.0
 # Django REST Framework
 djangorestframework==3.8.2  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
-django-taggit-serializer==0.1.5  # https://github.com/glemmaPaul/django-taggit-serializer
+django-taggit-serializer==0.1.7  # https://github.com/glemmaPaul/django-taggit-serializer
 django-rest-auth==0.9.3  # https://github.com/Tivix/django-rest-auth
