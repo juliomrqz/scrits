@@ -19,7 +19,7 @@ django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-cris
 django-compressor==2.2  # https://github.com/django-compressor/django-compressor
 django-redis==4.9.0  # https://github.com/niwinz/django-redis
 django-braces==1.13.0
-django-taggit==0.22.2  # https://github.com/alex/django-taggit
+django-taggit==0.23.0  # https://github.com/alex/django-taggit
 # django-secretballot==0.6.0
 django-hitcount==1.3.0  # https://github.com/thornomad/django-hitcount
 django-webpack-loader==0.6.0
