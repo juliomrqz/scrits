@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "gulp",
-    "heroku-prebuild": "cd angular && yarn && yarn run build:prod && cd ..",
+    "heroku-prebuild": "cd angular && npm install && npm run build:prod && cd ..",
     "heroku-postbuild": "python manage.py flush --noinput && python manage.py migrate && python manage.py loaddata fixtures/test-data.json && rm -rf ./angular/node_modules && python manage.py collectstatic"
   }
 }

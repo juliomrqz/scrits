@@ -16,17 +16,17 @@ import { Component, Input, OnChanges } from '@angular/core';
             `,
 })
 export class ScritsInputComponent implements OnChanges {
-  @Input() labelText: string = '';
-  @Input() idText: string = '';
+  @Input() labelText = '';
+  @Input() idText = '';
   @Input() inputErrors: any;
   @Input() errorDefs: any;
-  @Input() isDirty: boolean = false;
+  @Input() isDirty = false;
 
-  errorMessage: string = '';
+  errorMessage = '';
 
   ngOnChanges(changes: any): void {
     if (changes.inputErrors) {
-      var errors: any = changes.inputErrors.currentValue;
+      const errors: any = changes.inputErrors.currentValue;
       this.errorMessage = '';
 
       if (errors) {

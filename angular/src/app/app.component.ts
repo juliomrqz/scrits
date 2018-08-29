@@ -1,34 +1,27 @@
-/**
- * Angular 2 decorators and services
- */
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from "@angular/core";
+import { Component, OnDestroy, ViewEncapsulation } from '@angular/core';
 import {
   Router,
-  NavigationStart,
-  NavigationEnd,
-  NavigationCancel,
-  NavigationError
-} from "@angular/router";
+  // NavigationStart,
+  // NavigationEnd,
+  // NavigationCancel,
+  // NavigationError
+} from '@angular/router';
 
-// import { SlimLoadingBarService } from "ng2-slim-loading-bar";
-
-import { environment } from "environments/environment";
-import { AppState } from "./app.service";
-import './operators';
+// import { environment } from '../environments/environment';
 
 /**
  * App Component
  * Top Level Component
  */
 @Component({
-  selector: "scrits-app",
+  selector: 'scrits-app',
   encapsulation: ViewEncapsulation.None,
   template: `
     <!-- <ng2-slim-loading-bar [color]="'#337ab7'"></ng2-slim-loading-bar> -->
 
     <div class="wrapper">
       <scrits-sidebar class="sidebar-wrapper"></scrits-sidebar>
-  
+
       <!-- Page Content -->
       <div class="page-content-wrapper">
         <router-outlet></router-outlet>
@@ -36,13 +29,11 @@ import './operators';
     </div>
   `
 })
-export class AppComponent implements OnInit, OnDestroy {
-  public showDevModule: boolean = environment.showDevModule;
+export class AppComponent implements OnDestroy {
   private sub: any;
-  private position: string;
+  // private position: string;
 
   constructor(
-    public appState: AppState,
     // private slimLoader: SlimLoadingBarService,
     private router: Router
   ) {
@@ -63,10 +54,6 @@ export class AppComponent implements OnInit, OnDestroy {
         // this.slimLoader.complete();
       }
     );
-  }
-
-  public ngOnInit() {
-    console.log("Initial App State", this.appState.state);
   }
 
   ngOnDestroy(): any {

@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 const SimpleMDE = require('simplemde');
 
 @Component({
-  selector: 'simple-mde',
+  selector: 'scrits-simple-mde',
   template: '<textarea #simplemde [(ngModel)]="value" (blur)="onBlur()" class="form-control"></textarea>',
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -68,7 +68,7 @@ export class SimpleMDEComponent implements AfterViewInit, ControlValueAccessor, 
   // get accessor
   get value(): any {
     return this.innerValue;
-  };
+  }
 
   // set accessor including call the onchange callback
   set value(v: any) {

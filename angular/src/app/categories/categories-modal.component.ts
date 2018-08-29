@@ -12,7 +12,6 @@ const slugify: any = require('slugify');
  * This class represents the lazy loaded CategoriesComponent.
  */
 @Component({
-  moduleId: module.id,
   selector: 'scrits-category-modal',
   templateUrl: 'categories-modal.component.html'
 })
@@ -21,11 +20,11 @@ export class CategoriesModalComponent {
 
   errorMessage: string;
   @Input() public category: Category;
-  @Output() onUpdate: EventEmitter<any> = new EventEmitter();
-  @Output() onCreate: EventEmitter<any> = new EventEmitter();
+  @Output() update: EventEmitter<any> = new EventEmitter();
+  @Output() create: EventEmitter<any> = new EventEmitter();
 
-  isEditMode: boolean = false;
-  showLoadingIcon: boolean = false;
+  isEditMode = false;
+  showLoadingIcon = false;
 
   /**
    * Creates an instance of the AccountComponent with the injected
@@ -65,7 +64,7 @@ export class CategoriesModalComponent {
       if (this.isEditMode) {
         this.categoriesService.update(this.category).subscribe(
           category => {
-            this.onUpdate.emit(category);
+            this.update.emit(category);
             this.hide();
           },
           error => {
@@ -76,7 +75,7 @@ export class CategoriesModalComponent {
       } else {
         this.categoriesService.create(this.category).subscribe(
           category => {
-            this.onCreate.emit(category);
+            this.create.emit(category);
             this.hide();
           },
           error => {

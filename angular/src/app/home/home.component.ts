@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
   articlesByVotesErrorMessage: string;
   articlesByCreated: any[] = [];
   articlesByCreatedErrorMessage: string;
-  showMostVotedSpinner: boolean = true;
-  showLatestSpinner: boolean = true;
+  showMostVotedSpinner = true;
+  showLatestSpinner = true;
   toolbar = {
     'title': 'Overview',
     'subtitle': 'Your categories and articles summary'

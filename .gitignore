@@ -463,3 +463,5 @@ scrits/media/
 .env
 .envs/*
 !.envs/.local/
+
+/angular/webpack-stats.json

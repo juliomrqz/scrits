@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable, throwError } from 'rxjs';
 import { Restangular } from 'ngx-restangular';
 
-import { User, UserPassword } from './interfaces';
 import { WindowRefService } from '../window/window-ref.service';
+import { User, UserPassword } from './interfaces';
 
 /**
  * This class provides the NameList service with methods to read names and add names.
@@ -60,9 +60,9 @@ export class UserService {
         : error.status
           ? `${error.status} - ${error.statusText}`
           : 'Server error';
-      console.error(errMsg); // log to console instead
+      // console.error(errMsg); // log to console instead
     }
 
-    return Observable.throw(errMsg);
+    return throwError(errMsg);
   }
 }

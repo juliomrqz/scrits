@@ -16,6 +16,9 @@
   <!-- This file stores project-specific CSS -->
   <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
   <link href="{% static 'css/simplemde.min.css' %}" rel="stylesheet">
+  {% if not debug %}
+    {% render_bundle 'styles' 'css' %}
+  {% endif %}
   {% endcompress %}
 {% endblock %}
 
@@ -31,7 +34,20 @@
 {% endblock body %}
 
 {% block javascript %}
-  {% render_bundle 'inline' 'js' %}
-  {% render_bundle 'polyfills' 'js' %}
-  {% render_bundle 'main' 'js' %}
+  {% compress js %}
+    {% render_bundle 'runtime' 'js' %}
+    {% render_bundle 'polyfills' 'js' %}
+  {% endcompress %}
+
+  {% if not debug %}
+    {% render_bundle 'styles' 'js' %}
+  {% endif %}
+
+  {% compress js %}
+    {% render_bundle 'vendor' 'js' %}
+  {% endcompress %}
+
+  {% compress js %}
+    {% render_bundle 'main' 'js' %}
+  {% endcompress %}
 {% endblock javascript %}

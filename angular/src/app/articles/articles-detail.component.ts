@@ -10,7 +10,6 @@ import { WindowRefService } from '../shared/window/window-ref.service';
  * This class represents the lazy loaded ArticlesDetailComponent.
  */
 @Component({
-  moduleId: module.id,
   selector: 'scrits-articles-detail',
   templateUrl: 'articles-detail.component.html'
 })
@@ -20,7 +19,7 @@ export class ArticlesDetailComponent implements AfterViewInit, OnInit {
   articleErrorMessage: string;
   articleId: number;
   errorMessage: string;
-  showSpinner: boolean = true;
+  showSpinner = true;
   toolbar = {
     'title': 'Article detail',
     'subtitle': 'Details of your article'
@@ -81,7 +80,7 @@ export class ArticlesDetailComponent implements AfterViewInit, OnInit {
    * Get the article ID
    */
   getArticleId() {
-    var sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.articleId = Number(params['id']);
     });
   }

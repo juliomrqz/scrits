@@ -16,7 +16,6 @@ const slugify: any = require('slugify');
  * This class represents the lazy loaded ArticlesEditComponent.
  */
 @Component({
-  moduleId: module.id,
   selector: 'scrits-articles-edit',
   templateUrl: 'articles-edit.component.html'
 })
@@ -26,9 +25,9 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
   articleErrorMessage: string;
   categories: Category[] = [];
   categoriesErrorMessage: string;
-  isCreated: boolean = false;
-  showLoadingIcon: boolean = false;
-  showSpinner: boolean = true;
+  isCreated = false;
+  showLoadingIcon = false;
+  showSpinner = true;
   toolbar: {} = {};
   toolbarCreate = {
     'title': 'Create Article',
@@ -39,7 +38,7 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
     'subtitle': 'Update your article'
   };
 
-  private _isEditMode: boolean = false;
+  private _isEditMode = false;
   private window: Window;
 
   /**
@@ -94,7 +93,7 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   titleOnChange(data: any) {
-    var slugControl = this.articleForm.controls['slug'];
+    const slugControl = this.articleForm.controls['slug'];
     if (data !== null && !slugControl.dirty) {
       slugControl.patchValue(slugify(data).toLowerCase());
     }
@@ -102,7 +101,7 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
 
   get isEditMode(): any {
     return this._isEditMode;
-  };
+  }
 
   set isEditMode(v: any) {
     if (v !== this._isEditMode) {
@@ -143,7 +142,7 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
   }
 
   updateArticleForm(article: ArticleExtended) {
-    var categoryId: Number;
+    let categoryId: Number;
 
     if (article.category.id) {
       categoryId = article.category.id;
@@ -170,7 +169,7 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
    * Get the article ID
    */
   getArticleId() {
-    var sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.articleId = Number(params['id']);
 
       if (this.articleId > 0) {
@@ -232,14 +231,16 @@ export class ArticlesEditComponent implements AfterViewInit, OnChanges, OnInit {
       }
 
     } else {
-      var control: FormControl;
+      let control: FormControl;
       // Show fields errors
-      for (var controlName in this.articleForm.controls) {
+      for (const controlName of Object.keys(this.articleForm.controls)) {
         control = <FormControl>this.articleForm.controls[controlName];
 
-        // This prevents the slug field stop filling autmatically when user has not updated it
-        if (!control.valid)
+        // This prevents the slug field stop filling automatically when
+        // user has not updated it
+        if (!control.valid) {
           control.markAsDirty();
+        }
       }
     }
   }

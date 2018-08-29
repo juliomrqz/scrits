@@ -14,7 +14,7 @@ import { UserService } from '../shared/backend/user.service';
 export class AccountComponent implements OnInit {
   formDetails: FormGroup;
   formPassword: FormGroup;
-  showFormDetailsSpinner: boolean = true;
+  showFormDetailsSpinner = true;
   toolbar = {
     'title': 'Account',
     'subtitle': 'Your account settings'

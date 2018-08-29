@@ -1,35 +1,33 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 import { CategoriesService } from '../shared/backend/categories.service';
 import { Category } from '../shared/backend/interfaces';
-import { CategoriesModalComponent } from './categories-modal.component';
-
 import { WindowRefService } from '../shared/window/window-ref.service';
+import { CategoriesModalComponent } from './categories-modal.component';
 
 /**
  * This class represents the lazy loaded CategoriesComponent.
  */
 @Component({
-  moduleId: module.id,
   selector: 'scrits-categories',
   templateUrl: 'categories.component.html',
 })
 export class CategoriesComponent implements OnInit {
   @ViewChild(CategoriesModalComponent) public createModal: CategoriesModalComponent;
 
-  categoriesPerPage: number = 10;
+  categoriesPerPage = 10;
   categories: Category[] = [];
-  currentPage: number = 1;
+  currentPage = 1;
   modalModel: Category = { title: '', slug: '', description: '' };
   errorMessage: string;
-  paginationId: string = 'categoriesPagination';
-  showSpinner: boolean = true;
+  paginationId = 'categoriesPagination';
+  showSpinner = true;
   toolbar = {
     'title': 'Categories',
     'subtitle': 'Your categories list'
   };
-  totalCategories: number = 0;
+  totalCategories = 0;
 
   private window: Window;
 

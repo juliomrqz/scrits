@@ -1,13 +1,11 @@
-import { Inject } from '@angular/core';
-import { Response } from '@angular/http';
-
 import { CookieService } from 'ngx-cookie';
-import { RestangularModule, Restangular } from 'ngx-restangular';
+import { Restangular } from 'ngx-restangular';
 // import { ToasterService } from 'angular2-toaster';
 
+import { environment } from '../environments/environment';
 import { ObjectList } from './shared/backend/interfaces';
 
-const getResponseMessage = (response: Response): string => {
+const getResponseMessage = (response: any): string => {
   let message;
 
   try {
@@ -35,7 +33,7 @@ const getResponseMessage = (response: Response): string => {
 
 // Function for setting the default restangular configuration
 export function RestangularConfigFactory(
-  RestangularProvider,
+  RestangularProvider: Restangular['provider'],
   cookieService: CookieService
   //   toasterService: ToasterService
 ) {
@@ -71,7 +69,7 @@ export function RestangularConfigFactory(
   //     }
   //   });
 
-  RestangularProvider.setBaseUrl(process.env.API_URL);
+  RestangularProvider.setBaseUrl(environment.API_URL);
   RestangularProvider.setRequestSuffix('/?format=json');
 
   // By each request to the server receive a token and update headers with it
@@ -86,11 +84,10 @@ export function RestangularConfigFactory(
   );
 
   // TODO: Error interceptor
-  RestangularProvider.addErrorInterceptor(
-    (response: Response, subject, responseHandler) => {
-      console.debug('response', response);
-      console.debug('subject', subject);
-      console.debug('responseHandler', responseHandler);
+  RestangularProvider.addErrorInterceptor((response, subject, responseHandler) => {
+      // console.debug('response', response);
+      // console.debug('subject', subject);
+      // console.debug('responseHandler', responseHandler);
 
       const message = getResponseMessage(response);
 

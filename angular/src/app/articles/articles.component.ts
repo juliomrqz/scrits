@@ -1,34 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 import { ArticlesService } from '../shared/backend/articles.service';
-
-import 'rxjs/add/operator/debounceTime';
 
 /**
  * This class represents the lazy loaded ArticlesComponent.
  */
 @Component({
-  moduleId: module.id,
   selector: 'scrits-articles',
   templateUrl: 'articles.component.html',
   styles: ['.list-group-item-heading > a { color: inherit; }']
 })
 export class ArticlesComponent implements OnInit {
 
-  articlesPerPage: number = 10;
+  articlesPerPage = 10;
   articles: any[] = [];
-  currentPage: number = 1;
+  currentPage = 1;
   errorMessage: string;
-  paginationId: string = 'articlePagination';
+  paginationId = 'articlePagination';
   searchForm: FormGroup;
-  showSpinner: boolean = true;
+  showSpinner = true;
   toolbar = {
     'title': 'Articles',
     'subtitle': 'Your articles list'
   };
-  totalArticles: number = 0;
+  totalArticles = 0;
 
   /**
    * Creates an instance of the ArticlesComponent with the injected
@@ -47,7 +44,7 @@ export class ArticlesComponent implements OnInit {
     });
 
     this.searchForm.valueChanges
-      .debounceTime(400)
+      .pipe(debounceTime(400))
       .subscribe((value) => {
         this.submitSearchForm(this.searchForm);
       });
