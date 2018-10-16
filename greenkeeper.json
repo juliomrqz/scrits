@@ -1,0 +1,14 @@
+{
+  "groups": {
+    "django": {
+      "packages": [
+        "package.json"
+      ]
+    },
+    "angular": {
+      "packages": [
+        "angular/package.json"
+      ]
+    }
+  }
+}
