@@ -6,6 +6,7 @@
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg)](https://stackshare.io/bazzite/scrits)
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://raw.githubusercontent.com/bazzite/scrits/develop/LICENSE)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbazzite%2Fscrits.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbazzite%2Fscrits?ref=badge_shield)
+[![Greenkeeper badge](https://badges.greenkeeper.io/bazzite/scrits.svg)](https://greenkeeper.io/)
 
 <p align="center">
   <a href="https://www.bazzite.com/products/scrits?utm_source=github&utm_medium=readme&utm_campaign=scrits" target="_blank">
