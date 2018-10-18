@@ -11,7 +11,7 @@
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.1.2",
     "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
+    "gulp": ">=3.9.1 <4",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
