@@ -5,13 +5,11 @@
 // Plugins
 var gulp = require("gulp"),
   pjson = require("./package.json"),
-  gutil = require("gulp-util"),
   sass = require("gulp-sass"),
   autoprefixer = require("gulp-autoprefixer"),
   cssnano = require("gulp-cssnano"),
   concat = require("gulp-concat"),
   rename = require("gulp-rename"),
-  del = require("del"),
   plumber = require("gulp-plumber"),
   pixrem = require("gulp-pixrem"),
   uglify = require("gulp-uglify"),
