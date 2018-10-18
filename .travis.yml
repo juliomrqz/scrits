@@ -13,4 +13,5 @@ python:
   - "3.6"
 
 script:
-  - echo "TODO: Tests"
+  - pip install -r requirements/local.txt
+  - pytest
