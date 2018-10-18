@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --public-host http://127.0.0.1:4200/",
     "build": "ng build",
     "build:prod": "ng build --prod --vendor-chunk=true --output-hashing none",
     "build:prod:aot": "npm run build:prod -- --build-optimizer --aot",
