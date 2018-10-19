@@ -1,6 +1,22 @@
 {
   "name": "scrits",
   "version": "0.1.0",
+  "author": {
+    "name": "Bazzite",
+    "email": "support@bazzite.com",
+    "url": "https://www.bazzite.com"
+  },
+  "contributors": [{
+      "name": "Julio Marquez (@juliomrqz)"
+    },
+    {
+      "name": "Patricia Mora (@patriciajumper)"
+    },
+    {
+      "name": "Claude Giovagnoli (@giovagnoli)"
+    }
+  ],
+  "license": "Apache-2.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.3",

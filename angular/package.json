@@ -11,6 +11,22 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "author": {
+    "name": "Bazzite",
+    "email": "support@bazzite.com",
+    "url": "https://www.bazzite.com"
+  },
+  "contributors": [{
+      "name": "Julio Marquez (@juliomrqz)"
+    },
+    {
+      "name": "Patricia Mora (@patriciajumper)"
+    },
+    {
+      "name": "Claude Giovagnoli (@giovagnoli)"
+    }
+  ],
+  "license": "Apache-2.0",
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.1.0",
