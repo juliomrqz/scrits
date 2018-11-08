@@ -21,7 +21,7 @@
   "dependencies": {
     "bootstrap": "^4.1.3",
     "jquery": "^3.2.1-slim",
-    "popper.js": "^1.14.4"
+    "popper.js": "^1.14.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
